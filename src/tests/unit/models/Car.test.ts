@@ -71,7 +71,7 @@ describe('Teste de para o CarModel', () => {
 
   describe('Deletar um carro', () => {
     it('Testa se é possível deletar um carro', async () => {
-      const deleteResult = await model.delete('5f9f1b9f9b9b9b9b9b9b9b9b');
+      const deleteResult = await model.delete(carMockWithId._id);
       expect(deleteResult).to.be.deep.equal(carMockWithId);
     });
     it('Dispara erro se não houver _id correta', async () => {
