@@ -10,7 +10,7 @@ const CarMongoseSchema = new Schema<ICar>({
   buyValue: Number,
   doorsQty: Number,
   seatsQty: Number,
-});
+}, { versionKey: false });
 
 class CarModel extends MongoModel<ICar> {
   constructor(model = mongooseCreateModel('Cars', CarMongoseSchema)) {
@@ -19,3 +19,5 @@ class CarModel extends MongoModel<ICar> {
 }
 
 export default CarModel;
+
+// Ref: https://stackoverflow.com/questions/13699784/mongoose-v-property-hide
