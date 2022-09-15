@@ -1,6 +1,6 @@
-import * as sinon from 'sinon';
 import chai from 'chai';
 const { expect } = chai;
+import * as sinon from 'sinon';
 import { NextFunction, Request, Response } from 'express';
 import {
   carMock,

@@ -1,5 +1,5 @@
-const { expect } = chai;
 import chai from 'chai';
+const { expect } = chai;
 import * as sinon from 'sinon';
 import { ErrorTypes } from '../../../Middleware/erros/catalog';
 import CarModel from '../../../models/CarModel';
