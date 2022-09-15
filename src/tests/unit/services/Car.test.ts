@@ -36,7 +36,7 @@ describe('camada de service', () => {
     sinon.restore();
   })
 
-  describe('Criando o car', () => {
+  describe('Criando o carro', () => {
     it('Em caso de criar com sucesso', async () => {
       const resultCreated = await model.create(carMock);
 
@@ -51,12 +51,14 @@ describe('camada de service', () => {
       }
     });
   });
+
   describe('Ler toda a lista de carros', () => {
     it('Testa se é possível ler todos os carros', async () => {
       const readAllResult = await service.read();
       expect(readAllResult).to.be.deep.equal([carMockWithId]);
     });
   });
+
   describe('Ler apenas um carro', () => {
     it('Testa se é possível ler apenas um carro', async () => {
       const readOneResult = await service.readOne(carMockWithId._id);
@@ -66,10 +68,11 @@ describe('camada de service', () => {
       try {
         await service.readOne(carMockWithId._id);
       } catch (error: any) {
-        expect(error.message).to.be.equal(ErrorTypes.InvalidMongoId);
+        expect(error.message).to.be.equal(ErrorTypes.EntityNotFound);
       }
     });
   });
+
   describe('Atualizar um carro', () => {
     it('Testa se é possível atualizar um carro', async () => {
       const updateResult = await service.update(carMockWithId._id, carMockForChange);
@@ -93,6 +96,7 @@ describe('camada de service', () => {
       }
     });
   });
+
   describe('Deletar um carro', () => {
     it('Testa se é possível deletar um carro', async () => {
       const deleteResult = await service.delete(carMockWithId._id);
