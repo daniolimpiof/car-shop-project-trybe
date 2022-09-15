@@ -78,7 +78,7 @@ describe('Testando a camada de controller', () => {
       await controller.delete(req, res);
 
       expect((res.status as sinon.SinonStub).calledWith(204)).to.be.true;
-      expect((res.json as sinon.SinonStub).calledWith(carMock)).to.be.true;
+      expect((res.json as sinon.SinonStub).calledWith(carMockWithId)).to.be.true;
     });
   });
 });
