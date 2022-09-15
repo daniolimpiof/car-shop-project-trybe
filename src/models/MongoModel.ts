@@ -22,14 +22,13 @@ abstract class MongoModel<T> implements IModel<T> {
     return this._model.findById(_id);
   }
 
-  public async update(_id:string, obj:T):Promise<T | null> {
+  public async update(_id: string, obj: T): Promise<T | null> {
     if (!isValidObjectId(_id)) throw Error(ErrorTypes.InvalidMongoId);
-    
+
     return this._model.findByIdAndUpdate(
       _id,
       { ...obj } as UpdateQuery<T>,
       { new: true },
-
     );
   }
 
